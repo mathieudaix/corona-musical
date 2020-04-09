@@ -3,4 +3,10 @@
     max-width: $container-max;
     margin-right: auto;
     margin-left: auto;
+
+    &--full {
+        width: $container;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

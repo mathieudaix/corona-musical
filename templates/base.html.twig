@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <nav>
-            <div class="container">
-                <a href="">Logo</a>
-                <ul>
-                    <li><a href="">Accueil</a></li>
-                    {% if app.user %}
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">Déconnexion</a></li>
-                    {% else %}
-                        <li><a href="">Connexion</a></li>
-                        <li><a href="">Inscription</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body>
+<nav class="nav">
+    <div class="container--full nav__container">
+        <a class="nav__logo" href="{{ path('home') }}">CoronaMusical</a>
+        <div class="nav__icon">
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav__menu">
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            {% if app.user %}
+                <li><a href="{{ path('easyadmin') }}">Dashboard</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_register') }}">Inscription</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+
 </html>
