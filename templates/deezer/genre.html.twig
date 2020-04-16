@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genre{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="genre-header section--default">
+            <div class="container genre-header__container">
+                <h1>{{ genre.name }}</h1>
+                <ul>
+                    {% for genreArtist in genreArtists %}
+                        <li>
+                            <div style="background-image: url({{ genreArtist.picture_medium }})"></div>
+                            <h2><a href="">{{ genreArtist.name }}</a></h2>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

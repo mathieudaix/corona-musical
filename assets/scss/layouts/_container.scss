@@ -1,12 +1,9 @@
 .container {
-    width: $container;
-    max-width: $container-max;
-    margin-right: auto;
-    margin-left: auto;
-
-    &--full {
-        width: $container;
-        margin-right: auto;
-        margin-left: auto;
+    width: 100%;
+    padding-right: space(1.5);
+    padding-left: space(1.5);
+    @media all and (min-width: $from-small) {
+        padding-right: 0;
+        padding-left: 0;
     }
 }

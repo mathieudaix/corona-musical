@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genres{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="genres-header section--default">
+            <div class="container genres-header__container">
+                <h1>Genres</h1>
+                <ul>
+                    {% for genre in genres %}
+                        <li>
+                            <h2><a href="{{ path('genre', {id: genre.id}) }}">{{ genre.name }}</a></h2>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

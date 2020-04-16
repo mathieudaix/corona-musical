@@ -1,0 +1,47 @@
+.genre-header {
+    &__container {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: space(2);
+            @media all and (min-width: $from-medium) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: space(3);
+            }
+            @media all and (min-width: $from-large) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            @media all and (min-width: $from-big) {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            @media all and (min-width: $from-huge) {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            li {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                div {
+                    width: 100%;
+                    border-radius: 50%;
+                    margin-bottom: space(1.5);
+                    background: center / cover no-repeat;
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        padding-bottom: 100%;
+                    }
+                }
+
+                h2 {
+                    font-size: font(1.2);
+                }
+            }
+        }
+    }
+}

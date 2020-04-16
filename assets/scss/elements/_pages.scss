@@ -32,7 +32,35 @@ html {
 }
 
 body {
-    background: $color-white;
+    background: $color-light;
     color: $color-dark;
     font-family: $font-regular;
+    @media all and (min-width: $from-small) {
+        nav {
+            width: 18rem;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        main {
+            width: calc(100% - 18rem);
+            margin-left: auto;
+            padding: space(4);
+        }
+    }
 }
+
+.section--default {
+    padding-top: space(4);
+    @media all and (min-width: $from-small) {
+        padding-top: 0;
+    }
+
+    h1 {
+        border-bottom: 1px solid rgba($color-dark, 0.2);
+        padding-bottom: space(1);
+        margin-bottom: space(2);
+    }
+}
+

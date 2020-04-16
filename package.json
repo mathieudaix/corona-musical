@@ -10,9 +10,12 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
+        "dev-server": "encore dev-server --https --hot --port 8008",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "gsap": "^3.2.6"
     }
 }
