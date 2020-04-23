@@ -56,4 +56,64 @@ class DeezerController extends AbstractController
             'genreArtists' => $arrayArtists['data']
         ]);
     }
+
+    /**
+     * @Route("/albums", name="albums")
+     */
+    public function albums()
+    {
+        $url = 'https://api.deezer.com/chart/0/albums';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/albums.html.twig', [
+            'controller_name' => 'DeezerController',
+            'albums' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/radio", name="radio")
+     */
+    public function radio()
+    {
+        $url = 'https://api.deezer.com/radio';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/radio.html.twig', [
+            'controller_name' => 'DeezerController',
+            'radio' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/playlist", name="playlist")
+     */
+    public function playlist()
+    {
+        $url = 'https://api.deezer.com/chart/0/playlists';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/playlist.html.twig', [
+            'controller_name' => 'DeezerController',
+            'playlist' => $array['data']
+        ]);
+    }
+
+     /**
+     * @Route("/podcasts", name="podcasts")
+     */
+    public function podcasts()
+    {
+        $url = 'https://api.deezer.com/chart/0/podcasts';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/podcasts.html.twig', [
+            'controller_name' => 'DeezerController',
+            'podcasts' => $array['data']
+        ]);
+    }
 }

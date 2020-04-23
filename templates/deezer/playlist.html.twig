@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Playlist{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="playlist-header section--default">
+            <div class="container playlist-header__container">
+                <h1>Playlist</h1>
+                <ul>
+                    {% for playlist in playlist %}
+                        <li>
+                            <div style="background-image: url({{ playlist.picture_medium }})"></div>
+                            <h2><a href="">{{ playlist.title }}</a></h2>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}
