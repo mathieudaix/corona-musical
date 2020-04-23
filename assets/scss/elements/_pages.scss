@@ -64,3 +64,16 @@ body {
     }
 }
 
+.back {
+    display: flex;
+    align-items: center;
+    font-size: font(0.9);
+    margin-bottom: space(2);
+
+    svg {
+        width: 0.8rem;
+        height: 0.8rem;
+        margin-right: space(0.5);
+        transform: translateY(0.1rem);
+    }
+}

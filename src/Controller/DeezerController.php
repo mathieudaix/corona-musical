@@ -56,4 +56,35 @@ class DeezerController extends AbstractController
             'genreArtists' => $arrayArtists['data']
         ]);
     }
+
+    /**
+     * @Route("/artistes", name="artistes")
+     */
+    public function artistes()
+    {
+        $url = 'https://api.deezer.com/chart/0/artists';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/artistes.html.twig', [
+            'controller_name' => 'DeezerController',
+            'artistes' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/morceaux", name="morceaux")
+     */
+    public function morceaux()
+    {
+        $url = 'https://api.deezer.com/chart/0/tracks';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/morceaux.html.twig', [
+            'controller_name' => 'DeezerController',
+            'morceaux' => $array['data']
+        ]);
+    }
+
 }

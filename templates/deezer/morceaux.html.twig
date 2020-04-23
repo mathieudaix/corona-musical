@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Morceaux{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="genre-header section--default">
+            <div class="container genre-header__container">
+                <h1>Morceaux</h1>
+                <ul>
+                    {% for morceau in morceaux %}
+                        <li>
+                            <h2><a href="">{{ morceau.title }}</a></h2>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}
