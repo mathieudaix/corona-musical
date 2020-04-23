@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="albums-header section--default">
+            <div class="container albums-header__container">
+                <h1>Albums</h1>
+                <ul>
+                    {% for albums in albums %}
+                        <li>
+                            <div style="background-image: url({{ albums.cover_medium }})"></div>
+                            <h2><a href="">{{ albums.title }}</a></h2>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}
