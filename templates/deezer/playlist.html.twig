@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Corono Musical - {{ album.title }}{% endblock %}
+{% block title %}Corono Musical - {{ playlist.title }}{% endblock %}
 
 {% block body %}
 
@@ -9,28 +9,21 @@
         <header class="section--album">
             <div class="container">
                 <div>
-                    <img src="{{ album.cover_medium ? album.cover_medium : asset('build/images/default.jpg') }}" alt="">
+                    <img src="{{ playlist.picture_medium ? playlist.picture_medium : asset('build/images/default.jpg') }}" alt="">
                     <div>
-                        <h1>{{ album.title }}</h1>
-                        <h2><a href="{{ path('artiste', {id: albumArtist}) }}">{{ album.artist.name }}</a></h2>
+                        <h1>{{ playlist.title }}</h1>
+                        <h2>{{ playlist.creator.name }}</h2>
                         <div class="section--album__infos">
-                            <ul class="section--album">
-                                {% for albumGenre in albumGenres %}
-                                    <li>
-                                        <a href="{{ path('genre', {id: albumGenre.id}) }}">{{ albumGenre.name }}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <p>{{ album.release_date }}</p>
+                            <p>{{ playlist.creation_date }}</p>
                         </div>
                         <ul class="section--album__tracks">
-                            {% for key, albumMorceau in albumMorceaux %}
+                            {% for key, playlistMorceau in playlistMorceaux %}
                                 <li>
                                     <div>
                                         <span>{{ key+1 }}</span>
-                                        <h3>{{ albumMorceau.title }}</h3>
+                                        <h3>{{ playlistMorceau.title }}</h3>
                                     </div>
-                                    {% set seconds = albumMorceau.duration %}
+                                    {% set seconds = playlistMorceau.duration %}
                                     {% set hours = seconds / 3600 % 60 %}
                                     {% if hours  < 1 %}
                                         {% set hours = null %}
@@ -46,7 +39,7 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                        {% set seconds = album.duration %}
+                        {% set seconds = playlist.duration %}
                         {% set hours = seconds / 3600 % 60 %}
                         {% if hours  < 1 %}
                             {% set hours = null %}
@@ -58,7 +51,7 @@
                         {% if seconds < 10 %}
                             {% set seconds = '0' ~ seconds %}
                         {% endif %}
-                        <p class="section--album__data">{{ album.nb_tracks }} morceaux, {{ hours }}{{ minutes }}{{ seconds }}</p>
+                        <p class="section--album__data">{{ playlist.nb_tracks }} morceaux, {{ hours }}{{ minutes }}{{ seconds }}</p>
                     </div>
                 </div>
             </div>

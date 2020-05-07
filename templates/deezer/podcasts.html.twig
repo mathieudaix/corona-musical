@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Podcasts{% endblock %}
+{% block title %}Corono Musical - Podcast{% endblock %}
 
 {% block body %}
 
@@ -8,13 +8,14 @@
 
         <header class="section--default">
             <div class="container">
-                <h1>Podcasts</h1>
-                <ul>
+                <h1 class="subtitle">Podcasts</h1>
+                <ul class="grid--default">
                     {% for podcast in podcasts %}
                         <li>
                             <a href="">
                                 <div style="background-image: url( {{ podcast.picture_medium ? podcast.picture_medium : asset('build/images/default.jpg') }} )"></div>
                                 <h2>{{ podcast.title }}</h2>
+                                <h3 class="gray">{{ podcast.fans }} abonnés</h3>
                             </a>
                         </li>
                     {% endfor %}

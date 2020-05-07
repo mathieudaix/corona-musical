@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Artistes{% endblock %}
+{% block title %}Corono Musical - Artistes{% endblock %}
 
 {% block body %}
 
@@ -8,13 +8,14 @@
 
         <header class="section--default">
             <div class="container">
-                <h1>Artistes</h1>
-                <ul>
+                <h1 class="subtitle">Artistes</h1>
+                <ul class="grid--default">
                     {% for artiste in artistes %}
                         <li>
-                            <a href="">
-                                <div class="circle" style="background-image: url( {{ artiste.picture_medium ? artiste.picture_medium : asset('build/images/default.jpg') }} )"></div>
-                                <h2>{{ artiste.name }}</h2>
+                            <a href={{ path('artiste', {id: artiste.id}) }}>
+                                <div class="circle"
+                                     style="background-image: url( {{ artiste.picture_medium ? artiste.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2 class="center">{{ artiste.name }}</h2>
                             </a>
                         </li>
                     {% endfor %}

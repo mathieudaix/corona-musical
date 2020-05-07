@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Genres{% endblock %}
+{% block title %}Corono Musical - Genres{% endblock %}
 
 {% block body %}
 
@@ -8,11 +8,11 @@
 
         <header class="section--default">
             <div class="container">
-                <h1>Genres</h1>
-                <ul>
+                <h1 class="subtitle">Genres</h1>
+                <ul class="grid--default">
                     {% for genre in genres %}
                         <li>
-                            <a href="{{ path('genre', {id: genre.id}) }}">
+                            <a href={{ path('genre', {id: genre.id}) }}>
                                 <div style="background-image: url( {{ genre.picture_medium ? genre.picture_medium : asset('build/images/default.jpg') }} )"></div>
                                 <h2>{{ genre.name }}</h2>
                             </a>

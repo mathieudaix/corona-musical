@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corono Musical - {{ artist.name }}{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--artist">
+            <div class="container">
+                <div class="hero">
+                    <img src="{{ artist.picture_medium ? artist.picture_medium : asset('build/images/default.jpg') }}" alt="">
+                    <h1>{{ artist.name }}</h1>
+                </div>
+                <div class="top">
+                    <h2 class="subtitle">Classement des morceaux</h2>
+                    <ul>
+                        {% for artistTop in artistTops %}
+                            <li>
+                                <a href={{ path('album', {id: artistTop.id}) }}>
+                                    <img src="{{ artistTop.album.cover_small ? artistTop.album.cover_small : asset('build/images/default.jpg') }}" alt="">
+                                    <div>
+                                        <h3>{{ artistTop.title }}</h3>
+                                        <p>{{ artistTop.album.title }}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="subtitle">Albums</h2>
+                    <ul class="grid--default">
+                        {% for artistAlbum in artistAlbums %}
+                            {% if artistAlbum.record_type == 'album' %}
+                                <li>
+
+                                    <a href={{ path('album', {id: artistAlbum.id}) }}>
+                                        <div style="background-image: url( {{ artistAlbum.cover_medium ? artistAlbum.cover_medium : asset('build/images/default.jpg') }} )"></div>
+                                        <h3>{{ artistAlbum.title }}</h3>
+                                        <p>{{ artistAlbum.release_date }}</p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="subtitle">Singles</h2>
+                    <ul class="grid--default">
+                        {% for artistAlbum in artistAlbums %}
+                            {% if artistAlbum.record_type == 'single' %}
+                                <li>
+                                    <a href={{ path('album', {id: artistAlbum.id}) }}>
+                                        <div style="background-image: url( {{ artistAlbum.cover_medium ? artistAlbum.cover_medium : asset('build/images/default.jpg') }} )"></div>
+                                        <h3>{{ artistAlbum.title }}</h3>
+                                        <p>{{ artistAlbum.release_date }}</p>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="subtitle">Playlists</h2>
+                    <ul class="grid--default">
+                        {% for artistPlaylist in artistPlaylists %}
+                            <li>
+                                <a href={{ path('playlist', {id: artistPlaylist.id}) }}>
+                                    <div style="background-image: url( {{ artistPlaylist.picture_medium ? artistPlaylist.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                    <h3>{{ artistPlaylist.title }}</h3>
+                                    <p>{{ artistPlaylist.creation_date }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="related">
+                    <h2 class="subtitle">Artistes similaires</h2>
+                    <ul class="grid--default">
+                        {% for artistRelated in artistRelateds %}
+                            <li>
+                                <a href={{ path('artiste', {id: artistRelated.id}) }}>
+                                    <div style="background-image: url( {{ artistRelated.picture_medium ? artistRelated.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                    <h3>{{ artistRelated.name }}</h3>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

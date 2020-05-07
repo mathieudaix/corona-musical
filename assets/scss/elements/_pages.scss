@@ -56,93 +56,92 @@ body {
     }
 }
 
-.back {
-    display: flex;
-    align-items: center;
-    font-size: font(0.9);
+.subtitle {
+    font-size: font(1.4);
+    border-bottom: 1px solid rgba($color-dark, 0.2);
+    padding-bottom: space(0.5);
     margin-bottom: space(2);
-
-    svg {
-        width: 0.8rem;
-        height: 0.8rem;
-        margin-right: space(0.5);
-        transform: translateY(0.1rem);
-    }
 }
 
-.section--default {
-    ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: space(3);
-        @media all and (min-width: $from-medium) {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        @media all and (min-width: $from-large) {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        @media all and (min-width: $from-big) {
-            grid-template-columns: repeat(5, 1fr);
-        }
-        @media all and (min-width: $from-huge) {
-            grid-template-columns: repeat(6, 1fr);
-        }
+.gray {
+    color: $color-gray !important;
+}
 
-        li {
-            a {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-            div {
-                width: 100%;
-                border-radius: 5px;
-                margin-bottom: space(1.5);
-                background: center / cover no-repeat;
-
-                &::before {
-                    content: '';
-                    display: block;
-                    padding-bottom: 100%;
-                }
-
-                &.circle {
-                    border-radius: 50%;
-                }
-            }
-        }
+ul.grid--default {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: space(2);
+    @media all and (min-width: $from-medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media all and (min-width: $from-large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media all and (min-width: $from-big) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @media all and (min-width: $from-huge) {
+        grid-template-columns: repeat(6, 1fr);
     }
 
-    h1 {
-        border-bottom: 1px solid rgba($color-dark, 0.2);
-        padding-bottom: space(1);
-        margin-bottom: space(2);
+    li {
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: space(1);
+            background: center / cover no-repeat;
+
+            &::before {
+                content: '';
+                display: block;
+                padding-bottom: 100%;
+            }
+
+            &.circle {
+                border-radius: 50%;
+            }
+        }
+
+        h2 {
+            font-size: font(0.95);
+
+            &.center {
+                text-align: center;
+            }
+        }
+
+        h3 {
+            color: $color-blue;
+            font-size: font(0.85);
+        }
     }
 }
 
 .section--album {
     img {
         border-radius: 4px;
+        margin-bottom: space(1);
     }
 
     h1 {
-        font-size: font(1.6);
-        margin-top: space(2);
+        font-size: font(1.4);
     }
 
     h2 {
-        font-size: font(1.4);
+        font-size: font(1.2);
         color: $color-blue;
-        margin: space(0.25) 0 space(0.5);
     }
 
     &__infos {
         font-size: font(0.8);
         color: $color-gray;
         display: flex;
+        margin-top: space(1);
 
         ul {
             display: flex;
@@ -154,11 +153,9 @@ body {
         }
     }
 
-    button {
-        margin: space(1.5) 0;
-    }
-
     &__tracks {
+        margin-top: space(2);
+
         li {
             display: flex;
             align-items: center;
@@ -173,10 +170,11 @@ body {
             div {
                 display: flex;
                 align-items: center;
+                font-size: font(0.95);
 
                 span {
                     width: 2.5rem;
-                    font-size: font(0.8);
+                    font-size: font(0.85);
                     color: $color-gray;
                 }
             }
@@ -193,4 +191,77 @@ body {
         color: $color-gray;
         margin-top: space(2);
     }
+}
+
+.section--artist {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 15rem;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: font(1.8);
+            margin-top: space(1);
+        }
+    }
+
+    .container > div:not(:first-of-type) {
+        margin-top: space(4);
+    }
+
+    .top {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: space(1);
+            @media all and (min-width: $from-medium) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media all and (min-width: $from-large) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @media all and (min-width: $from-big) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 3rem;
+                        border-radius: 5px;
+                        margin-right: space(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .related {
+        div {
+            border-radius: 50%;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    h3 {
+        font-size: font(0.95) !important;
+        color: $color-dark !important;
+    }
+
+    p {
+        font-size: font(0.85);
+        color: $color-gray;
+    }
+
 }
