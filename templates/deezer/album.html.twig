@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--album">
+            <div class="container">
+                <div>
+                    <img src="{{ album.cover_medium ? album.cover_medium : asset('build/images/default.jpg') }}" alt="">
+                    <div>
+                        <h1>{{ album.title }}</h1>
+                        <h2><a href="">{{ album.artist.name }}</a></h2>
+                        <div class="section--album__infos">
+                            <ul class="section--album">
+                                {% for albumGenre in albumGenres %}
+                                    <li>{{ albumGenre.name }}</li>
+                                {% endfor %}
+                            </ul>
+                            <p>{{ album.release_date }}</p>
+                        </div>
+                        <button class="btn">Écouter</button>
+                        <ul class="section--album__tracks">
+                            {% for key, albumMorceau in albumMorceaux %}
+                                <li>
+                                    <div>
+                                        <span>{{ key+1 }}</span>
+                                        <h3>{{ albumMorceau.title }}</h3>
+                                    </div>
+                                    {% set minutesMorceau = albumMorceau.duration / 60 % 60  ~ ':' %}
+                                    {% set secondsMorceau = albumMorceau.duration % 60 %}
+                                    {% if secondsMorceau < 10 %}
+                                        {% set secondsMorceau = '0' ~ secondsMorceau %}
+                                    {% endif %}
+                                    <p>{{ minutesMorceau }}{{ secondsMorceau }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% set minutesAlbum = album.duration / 60 % 60 %}
+                        <p class="section--album__data">{{ album.nb_tracks }} morceaux, {{ minutesAlbum }} minutes</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

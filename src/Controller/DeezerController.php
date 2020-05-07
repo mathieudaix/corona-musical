@@ -8,17 +8,49 @@ use Symfony\Component\Routing\Annotation\Route;
 class DeezerController extends AbstractController
 {
     /**
-     * @Route("/deezer", name="deezer")
+     * @Route("/albums", name="albums")
      */
-    public function index()
+    public function albums()
     {
-        $url = 'https://api.deezer.com/artist/' . rand(1, 100) . '/albums';
+        $url = 'https://api.deezer.com/chart/0/albums&limit=36';
         $data = file_get_contents($url);
         $array = json_decode($data, true);
 
-        return $this->render('deezer/index.html.twig', [
+        return $this->render('deezer/albums.html.twig', [
             'controller_name' => 'DeezerController',
             'albums' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/albums/{id}", name="album")
+     */
+    public function album($id)
+    {
+        $url = 'https://api.deezer.com/album/' . $id;
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/album.html.twig', [
+            'controller_name' => 'DeezerController',
+            'album' => $array,
+            'albumGenres' => $array["genres"]["data"],
+            'albumMorceaux' => $array["tracks"]["data"],
+        ]);
+    }
+
+    /**
+     * @Route("/artistes", name="artistes")
+     */
+    public function artistes()
+    {
+        $url = 'https://api.deezer.com/chart/0/artists&limit=36';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/artistes.html.twig', [
+            'controller_name' => 'DeezerController',
+            'artistes' => $array['data']
         ]);
     }
 
@@ -36,6 +68,52 @@ class DeezerController extends AbstractController
             'genres' => $array['data']
         ]);
     }
+
+    /**
+     * @Route("/playlists", name="playlists")
+     */
+    public function playlists()
+    {
+        $url = 'https://api.deezer.com/chart/0/playlists&limit=36';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/playlists.html.twig', [
+            'controller_name' => 'DeezerController',
+            'playlists' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/podcasts", name="podcasts")
+     */
+    public function podcasts()
+    {
+        $url = 'https://api.deezer.com/chart/0/podcasts&limit=36';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/podcasts.html.twig', [
+            'controller_name' => 'DeezerController',
+            'podcasts' => $array['data']
+        ]);
+    }
+
+    /**
+     * @Route("/radios", name="radios")
+     */
+    public function radios()
+    {
+        $url = 'https://api.deezer.com/radio/top&limit=36';
+        $data = file_get_contents($url);
+        $array = json_decode($data, true);
+
+        return $this->render('deezer/radios.html.twig', [
+            'controller_name' => 'DeezerController',
+            'radios' => $array['data']
+        ]);
+    }
+
 
     /**
      * @Route("/genres/{id}", name="genre")
@@ -58,36 +136,6 @@ class DeezerController extends AbstractController
     }
 
     /**
-     * @Route("/artistes", name="artistes")
-     */
-    public function artistes()
-    {
-        $url = 'https://api.deezer.com/chart/0/artists';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/artistes.html.twig', [
-            'controller_name' => 'DeezerController',
-            'artistes' => $array['data']
-        ]);
-    }
-
-    /**
-     * @Route("/albums", name="albums")
-     */
-    public function albums()
-    {
-        $url = 'https://api.deezer.com/chart/0/albums';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/albums.html.twig', [
-            'controller_name' => 'DeezerController',
-            'albums' => $array['data']
-        ]);
-    }
-
-    /**
      * @Route("/morceaux", name="morceaux")
      */
     public function morceaux()
@@ -99,51 +147,6 @@ class DeezerController extends AbstractController
         return $this->render('deezer/morceaux.html.twig', [
             'controller_name' => 'DeezerController',
             'morceaux' => $array['data']
-        ]);
-    }
-
-    /**
-     * @Route("/radio", name="radio")
-     */
-    public function radio()
-    {
-        $url = 'https://api.deezer.com/radio';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/radio.html.twig', [
-            'controller_name' => 'DeezerController',
-            'radio' => $array['data']
-        ]);
-    }
-
-    /**
-     * @Route("/playlist", name="playlist")
-     */
-    public function playlist()
-    {
-        $url = 'https://api.deezer.com/chart/0/playlists';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/playlist.html.twig', [
-            'controller_name' => 'DeezerController',
-            'playlist' => $array['data']
-        ]);
-    }
-
-     /**
-     * @Route("/podcasts", name="podcasts")
-     */
-    public function podcasts()
-    {
-        $url = 'https://api.deezer.com/chart/0/podcasts';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/podcasts.html.twig', [
-            'controller_name' => 'DeezerController',
-            'podcasts' => $array['data']
         ]);
     }
 }

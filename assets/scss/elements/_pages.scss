@@ -56,14 +56,6 @@ body {
     }
 }
 
-.section--default {
-    h1 {
-        border-bottom: 1px solid rgba($color-dark, 0.2);
-        padding-bottom: space(1);
-        margin-bottom: space(2);
-    }
-}
-
 .back {
     display: flex;
     align-items: center;
@@ -75,5 +67,130 @@ body {
         height: 0.8rem;
         margin-right: space(0.5);
         transform: translateY(0.1rem);
+    }
+}
+
+.section--default {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: space(3);
+        @media all and (min-width: $from-medium) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media all and (min-width: $from-large) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media all and (min-width: $from-big) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        @media all and (min-width: $from-huge) {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        li {
+            a {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: space(1.5);
+                background: center / cover no-repeat;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    padding-bottom: 100%;
+                }
+
+                &.circle {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    h1 {
+        border-bottom: 1px solid rgba($color-dark, 0.2);
+        padding-bottom: space(1);
+        margin-bottom: space(2);
+    }
+}
+
+.section--album {
+    img {
+        border-radius: 4px;
+    }
+
+    h1 {
+        font-size: font(1.6);
+        margin-top: space(2);
+    }
+
+    h2 {
+        font-size: font(1.4);
+        color: $color-blue;
+        margin: space(0.25) 0 space(0.5);
+    }
+
+    &__infos {
+        font-size: font(0.8);
+        color: $color-gray;
+        display: flex;
+
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-right: space(1);
+            }
+        }
+    }
+
+    button {
+        margin: space(1.5) 0;
+    }
+
+    &__tracks {
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba($color-gray, 0.15);
+            padding: space(1.5) 0;
+
+            &:last-of-type {
+                border-bottom: 1px solid rgba($color-gray, 0.15);
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+
+                span {
+                    width: 2.5rem;
+                    font-size: font(0.8);
+                    color: $color-gray;
+                }
+            }
+
+            p {
+                color: $color-gray;
+                font-size: font(0.8);
+            }
+        }
+    }
+
+    &__data {
+        font-size: font(0.8);
+        color: $color-gray;
+        margin-top: space(2);
     }
 }

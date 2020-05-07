@@ -6,14 +6,16 @@
 
     <main>
 
-        <header class="albums-header section--default">
-            <div class="container albums-header__container">
+        <header class="section--default">
+            <div class="container">
                 <h1>Albums</h1>
                 <ul>
-                    {% for albums in albums %}
+                    {% for album in albums %}
                         <li>
-                            <div style="background-image: url({{ albums.cover_medium }})"></div>
-                            <h2><a href="">{{ albums.title }}</a></h2>
+                            <a href={{ path('album', {id: album.id}) }}>
+                                <div style="background-image: url( {{ album.cover_medium ? album.cover_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2>{{ album.title }}</h2>
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>

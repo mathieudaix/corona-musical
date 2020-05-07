@@ -6,13 +6,16 @@
 
     <main>
 
-        <header class="genres-header section--default">
-            <div class="container genres-header__container">
+        <header class="section--default">
+            <div class="container">
                 <h1>Genres</h1>
                 <ul>
                     {% for genre in genres %}
                         <li>
-                            <h2><a href="{{ path('genre', {id: genre.id}) }}">{{ genre.name }}</a></h2>
+                            <a href="{{ path('genre', {id: genre.id}) }}">
+                                <div style="background-image: url( {{ genre.picture_medium ? genre.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2>{{ genre.name }}</h2>
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>

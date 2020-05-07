@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Podcasts{% endblock %}
+{% block title %}Radios{% endblock %}
 
 {% block body %}
 
@@ -8,13 +8,13 @@
 
         <header class="section--default">
             <div class="container">
-                <h1>Podcasts</h1>
+                <h1>Radios</h1>
                 <ul>
-                    {% for podcast in podcasts %}
+                    {% for radio in radios %}
                         <li>
                             <a href="">
-                                <div style="background-image: url( {{ podcast.picture_medium ? podcast.picture_medium : asset('build/images/default.jpg') }} )"></div>
-                                <h2>{{ podcast.title }}</h2>
+                                <div style="background-image: url( {{ radio.picture_medium ? radio.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2>{{ radio.title }}</h2>
                             </a>
                         </li>
                     {% endfor %}
