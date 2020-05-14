@@ -183,6 +183,10 @@ ul.grid--default {
                 color: $color-gray;
                 font-size: font(0.8);
             }
+
+            .playlist__name {
+                margin-left: space(2);
+            }
         }
     }
 
@@ -190,6 +194,24 @@ ul.grid--default {
         font-size: font(0.8);
         color: $color-gray;
         margin-top: space(2);
+    }
+}
+
+.audio {
+    margin-right: space(2);
+    cursor: pointer;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .pause {
+        display: none;
+    }
+
+    audio {
+        display: none;
     }
 }
 
@@ -230,7 +252,7 @@ ul.grid--default {
             }
 
             li {
-                a {
+                > div {
                     display: flex;
                     align-items: center;
 

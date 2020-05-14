@@ -9,6 +9,7 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
+    <link rel="icon" href="{{ asset('build/images/favicon.png') }}" type="image/png">
 </head>
 
 <body>
@@ -121,8 +122,10 @@
                 {% if app.user %}
                     <li>
                         <a href="{{ path('easyadmin') }}">
-                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-                                <path d='M240,343.31V424a32.28,32.28,0,0,1-21.88,30.65l-21.47,7.23c-25.9,8.71-52.65-10.75-52.65-38.32h0A34.29,34.29,0,0,1,167.25,391l50.87-17.12A32.29,32.29,0,0,0,240,343.24V92a16.13,16.13,0,0,1,12.06-15.66L360.49,48.2A6,6,0,0,1,368,54v57.76a16.13,16.13,0,0,1-12.12,15.67l-91.64,23.13A32.25,32.25,0,0,0,240,181.91V221.3'
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-n</title>
+                                <path d='M64,192V120a40,40,0,0,1,40-40h75.89a40,40,0,0,1,22.19,6.72l27.84,18.56A40,40,0,0,0,252.11,112H408a40,40,0,0,1,40,40v40'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <path d='M479.9,226.55,463.68,392a40,40,0,0,1-39.93,40H88.25a40,40,0,0,1-39.93-40L32.1,226.55A32,32,0,0,1,64,192h384.1A32,32,0,0,1,479.9,226.55Z'
                                       style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
                             </svg>
                             Admin
@@ -130,9 +133,11 @@
                     </li>
                     <li>
                         <a href="{{ path('app_logout') }}">
-                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-                                <path d='M240,343.31V424a32.28,32.28,0,0,1-21.88,30.65l-21.47,7.23c-25.9,8.71-52.65-10.75-52.65-38.32h0A34.29,34.29,0,0,1,167.25,391l50.87-17.12A32.29,32.29,0,0,0,240,343.24V92a16.13,16.13,0,0,1,12.06-15.66L360.49,48.2A6,6,0,0,1,368,54v57.76a16.13,16.13,0,0,1-12.12,15.67l-91.64,23.13A32.25,32.25,0,0,0,240,181.91V221.3'
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-o</title>
+                                <path d='M304,336v40a40,40,0,0,1-40,40H104a40,40,0,0,1-40-40V136a40,40,0,0,1,40-40H256c22.09,0,48,17.91,48,40v40'
                                       style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <polyline points='368 336 448 256 368 176' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='176' y1='256' x2='432' y2='256' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
                             </svg>
                             Déconnexion
                         </a>
@@ -140,18 +145,24 @@
                 {% else %}
                     <li>
                         <a href="{{ path('app_register') }}">
-                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-                                <path d='M240,343.31V424a32.28,32.28,0,0,1-21.88,30.65l-21.47,7.23c-25.9,8.71-52.65-10.75-52.65-38.32h0A34.29,34.29,0,0,1,167.25,391l50.87-17.12A32.29,32.29,0,0,0,240,343.24V92a16.13,16.13,0,0,1,12.06-15.66L360.49,48.2A6,6,0,0,1,368,54v57.76a16.13,16.13,0,0,1-12.12,15.67l-91.64,23.13A32.25,32.25,0,0,0,240,181.91V221.3'
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-j</title>
+                                <path d='M376,144c-3.92,52.87-44,96-88,96s-84.15-43.12-88-96c-4-55,35-96,88-96S380,90,376,144Z'
                                       style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <path d='M288,304c-87,0-175.3,48-191.64,138.6-2,10.92,4.21,21.4,15.65,21.4H464c11.44,0,17.62-10.48,15.65-21.4C463.3,352,375,304,288,304Z'
+                                      style='fill:none;stroke:#0b1417;stroke-miterlimit:10;stroke-width:32px'/>
+                                <line x1='88' y1='176' x2='88' y2='288' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='144' y1='232' x2='32' y2='232' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
                             </svg>
                             Inscription
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('app_login') }}">
-                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-                                <path d='M240,343.31V424a32.28,32.28,0,0,1-21.88,30.65l-21.47,7.23c-25.9,8.71-52.65-10.75-52.65-38.32h0A34.29,34.29,0,0,1,167.25,391l50.87-17.12A32.29,32.29,0,0,0,240,343.24V92a16.13,16.13,0,0,1,12.06-15.66L360.49,48.2A6,6,0,0,1,368,54v57.76a16.13,16.13,0,0,1-12.12,15.67l-91.64,23.13A32.25,32.25,0,0,0,240,181.91V221.3'
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-o</title>
+                                <path d='M192,176V136a40,40,0,0,1,40-40H392a40,40,0,0,1,40,40V376a40,40,0,0,1-40,40H240c-22.09,0-48-17.91-48-40V336'
                                       style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <polyline points='288 336 368 256 288 176' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='80' y1='256' x2='352' y2='256' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
                             </svg>
                             Connexion
                         </a>

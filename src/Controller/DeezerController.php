@@ -36,7 +36,7 @@ class DeezerController extends AbstractController
             'album' => $array,
             'albumGenres' => $array["genres"]["data"],
             'albumMorceaux' => $array["tracks"]["data"],
-            'albumArtist' => $array["artist"]["id"]
+            'albumArtist' => $array["artist"]["id"],
         ]);
     }
 

@@ -21,7 +21,26 @@
                                 <li>
                                     <div>
                                         <span>{{ key+1 }}</span>
+                                        <div class="audio" data-music="0">
+                                            <div>
+                                                <svg class="play" xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                                                    <path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z'
+                                                          style='fill:none;stroke:#0b1417;stroke-miterlimit:10;stroke-width:32px'/>
+                                                    <path d='M216.32,334.44,330.77,265.3a10.89,10.89,0,0,0,0-18.6L216.32,177.56A10.78,10.78,0,0,0,200,186.87V325.13A10.78,10.78,0,0,0,216.32,334.44Z'/>
+                                                </svg>
+                                                <svg class="pause" xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                                                    <path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z'
+                                                          style='fill:none;stroke:#0b1417;stroke-miterlimit:10;stroke-width:32px'/>
+                                                    <line x1='208' y1='192' x2='208' y2='320'
+                                                          style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                                                    <line x1='304' y1='192' x2='304' y2='320'
+                                                          style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                                                </svg>
+                                            </div>
+                                            <audio src={{ playlistMorceau.preview }}></audio>
+                                        </div>
                                         <h3>{{ playlistMorceau.title }}</h3>
+                                        <p class="playlist__name">{{ playlistMorceau.artist.name }}</p>
                                     </div>
                                     {% set seconds = playlistMorceau.duration %}
                                     {% set hours = seconds / 3600 % 60 %}
