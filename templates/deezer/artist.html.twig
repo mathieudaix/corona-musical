@@ -15,10 +15,11 @@
                 <div class="top">
                     <h2 class="subtitle">Classement des morceaux</h2>
                     <ul>
+                    <audio id="player" src=""></audio>
                         {% for artistTop in artistTops %}
                             <li>
                                 <div>
-                                    <div class="audio" data-music="0">
+                                    <div class="audio" data-music={{ artistTop.preview }}>
                                         <div>
                                             <svg class="play" xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
                                                 <path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z'
@@ -34,7 +35,6 @@
                                                       style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
                                             </svg>
                                         </div>
-                                        <audio src={{ artistTop.preview }}></audio>
                                     </div>
                                     <img src="{{ artistTop.album.cover_small ? artistTop.album.cover_small : asset('build/images/default.jpg') }}" alt="">
                                     <div>
