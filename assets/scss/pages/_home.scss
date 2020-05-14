@@ -31,5 +31,15 @@
             text-align: center;
             margin-bottom: space(3);
         }
+
+        div {
+            display: flex;
+            align-items: center;
+            button {
+                &:first-of-type {
+                    margin-right: space(1);
+                }
+            }
+        }
     }
 }

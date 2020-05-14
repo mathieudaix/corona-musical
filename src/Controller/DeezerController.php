@@ -185,19 +185,4 @@ class DeezerController extends AbstractController
             'radios' => $array['data']
         ]);
     }
-
-    /**
-     * @Route("/morceaux", name="morceaux")
-     */
-    public function morceaux()
-    {
-        $url = 'https://api.deezer.com/chart/0/tracks';
-        $data = file_get_contents($url);
-        $array = json_decode($data, true);
-
-        return $this->render('deezer/morceaux.html.twig', [
-            'controller_name' => 'DeezerController',
-            'morceaux' => $array['data']
-        ]);
-    }
 }

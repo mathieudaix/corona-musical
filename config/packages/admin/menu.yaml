@@ -1,0 +1,7 @@
+easy_admin:
+    design:
+        menu:
+            -   label: 'Settings'
+                icon: 'cog'
+                children:
+                    - {entity: User, icon: 'user'}

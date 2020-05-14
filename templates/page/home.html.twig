@@ -9,7 +9,14 @@
         <header class="home-header">
             <div class="container home-header__container">
                 <h1>Bienvenue sur Corona Musical !</h1>
-                <button class="btn">Découvrir</button>
+                {% if app.user %}
+                    <button class="btn"><a href="{{ path('albums') }}">Découvrir</a></button>
+                {% else %}
+                    <div>
+                        <button class="btn"><a href="{{ path('app_register') }}">S'inscire</a></button>
+                        <button class="btn"><a href="{{ path('app_login') }}">Se connecter</a></button>
+                    </div>
+                {% endif %}
             </div>
         </header>
 

@@ -1,0 +1,42 @@
+label {
+    display: block;
+    font-size: font(1);
+    margin-bottom: space(1);
+}
+
+input {
+    display: block;
+    width: 100%;
+    background: $color-white;
+    padding: space(1);
+    margin-bottom: space(2);
+    border: 1px solid $color-white;
+
+    &:focus {
+        border: 1px solid $color-blue;
+    }
+}
+
+.form__msg {
+    color: $color-gray;
+    margin-bottom: space(2);
+
+    a {
+        color: $color-blue;
+    }
+}
+
+.alert {
+    color: red;
+    margin-bottom: space(1);
+    font-size: font(0.95);
+}
+
+.connect__msg {
+    color: $color-gray;
+    margin-bottom: space(1);
+
+    a {
+        color: $color-blue;
+    }
+}
