@@ -1,12 +1,185 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Corona Musical{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <link rel="icon" href="{{ asset('build/images/favicon.png') }}" type="image/png">
+</head>
+
+<body>
+<nav class="nav">
+    <div class="nav__container">
+        <a class="nav__logo" href="{{ path('home') }}">coronamusical.</a>
+        <div class="nav__icon">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav__menu">
+            <ul>
+                <li>Général</li>
+                <li>
+                    <a href="{{ path('home') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <path d='M80,212V448a16,16,0,0,0,16,16h96V328a24,24,0,0,1,24-24h80a24,24,0,0,1,24,24V464h96a16,16,0,0,0,16-16V212'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M480,256,266.89,52c-5-5.28-16.69-5.34-21.78,0L32,256'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <polyline points='400 179 400 64 352 64 352 133' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('albums') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <path d='M434.8,137.65,285.44,69.55c-16.19-7.4-42.69-7.4-58.88,0L77.3,137.65c-17.6,8-17.6,21.09,0,29.09l148,67.5c16.89,7.7,44.69,7.7,61.58,0l148-67.5C452.4,158.74,452.4,145.64,434.8,137.65Z'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M160,308.52,77.3,345.63c-17.6,8-17.6,21.1,0,29.1l148,67.5c16.89,7.69,44.69,7.69,61.58,0l148-67.5c17.6-8,17.6-21.1,0-29.1l-79.94-38.47'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M160,204.48,77.2,241.64c-17.6,8-17.6,21.1,0,29.1l148,67.49c16.89,7.7,44.69,7.7,61.58,0l148-67.49c17.7-8,17.7-21.1.1-29.1L352,204.48'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Albums
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('artistes') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <path d='M402,168c-2.93,40.67-33.1,72-66,72s-63.12-31.32-66-72c-3-42.31,26.37-72,66-72S405,126.46,402,168Z'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M336,304c-65.17,0-127.84,32.37-143.54,95.41-2.08,8.34,3.15,16.59,11.72,16.59H467.83c8.57,0,13.77-8.25,11.72-16.59C463.85,335.36,401.18,304,336,304Z'
+                                  style='fill:none;stroke:#0b1417;stroke-miterlimit:10;stroke-width:32px'/>
+                            <path d='M200,185.94C197.66,218.42,173.28,244,147,244S96.3,218.43,94,185.94C91.61,152.15,115.34,128,147,128S202.39,152.77,200,185.94Z'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M206,306c-18.05-8.27-37.93-11.45-59-11.45-52,0-102.1,25.85-114.65,76.2C30.7,377.41,34.88,384,41.72,384H154'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                        </svg>
+                        Artistes
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('genres') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-p</title>
+                            <path d='M403.29,32H280.36a14.46,14.46,0,0,0-10.2,4.2L24.4,281.9a28.85,28.85,0,0,0,0,40.7l117,117a28.86,28.86,0,0,0,40.71,0L427.8,194a14.46,14.46,0,0,0,4.2-10.2V60.8A28.66,28.66,0,0,0,403.29,32Z'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M352,144a32,32,0,1,1,32-32A32,32,0,0,1,352,144Z'/>
+                            <path d='M230,480,492,218a13.81,13.81,0,0,0,4-10V80' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Genres
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('playlists') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <rect x='48' y='48' width='176' height='176' rx='20' ry='20'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <rect x='288' y='48' width='176' height='176' rx='20' ry='20'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <rect x='48' y='288' width='176' height='176' rx='20' ry='20'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <rect x='288' y='288' width='176' height='176' rx='20' ry='20'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Playlist
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('podcasts') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <line x1='192' y1='448' x2='320' y2='448' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M384,208v32c0,70.4-57.6,128-128,128h0c-70.4,0-128-57.6-128-128V208'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <line x1='256' y1='368' x2='256' y2='448' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M256,64a63.68,63.68,0,0,0-64,64V239c0,35.2,29,65,64,65s64-29,64-65V128C320,92,292,64,256,64Z'
+                                  style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Podcast
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('radios') }}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+                            <circle cx='256' cy='256.02' r='32'/>
+                            <path d='M184.25,192.25a96,96,0,0,0,0,127.52' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M327.77,319.77a96,96,0,0,0,0-127.52' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M133.28,141.28a168,168,0,0,0,0,229.44' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M378.72,370.72a168,168,0,0,0,0-229.44' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M435,416a240.34,240.34,0,0,0,0-320' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            <path d='M77,96a240.34,240.34,0,0,0,0,320' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                        </svg>
+                        Radio
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>Autres</li>
+                {% if app.user %}
+                    <li>
+                        <a href="{{ path('easyadmin') }}">
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-n</title>
+                                <path d='M64,192V120a40,40,0,0,1,40-40h75.89a40,40,0,0,1,22.19,6.72l27.84,18.56A40,40,0,0,0,252.11,112H408a40,40,0,0,1,40,40v40'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <path d='M479.9,226.55,463.68,392a40,40,0,0,1-39.93,40H88.25a40,40,0,0,1-39.93-40L32.1,226.55A32,32,0,0,1,64,192h384.1A32,32,0,0,1,479.9,226.55Z'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            </svg>
+                            Admin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}">
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-o</title>
+                                <path d='M304,336v40a40,40,0,0,1-40,40H104a40,40,0,0,1-40-40V136a40,40,0,0,1,40-40H256c22.09,0,48,17.91,48,40v40'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <polyline points='368 336 448 256 368 176' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='176' y1='256' x2='432' y2='256' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            </svg>
+                            Déconnexion
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_register') }}">
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-j</title>
+                                <path d='M376,144c-3.92,52.87-44,96-88,96s-84.15-43.12-88-96c-4-55,35-96,88-96S380,90,376,144Z'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <path d='M288,304c-87,0-175.3,48-191.64,138.6-2,10.92,4.21,21.4,15.65,21.4H464c11.44,0,17.62-10.48,15.65-21.4C463.3,352,375,304,288,304Z'
+                                      style='fill:none;stroke:#0b1417;stroke-miterlimit:10;stroke-width:32px'/>
+                                <line x1='88' y1='176' x2='88' y2='288' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='144' y1='232' x2='32' y2='232' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            </svg>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}">
+                            <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><title>ionicons-v5-o</title>
+                                <path d='M192,176V136a40,40,0,0,1,40-40H392a40,40,0,0,1,40,40V376a40,40,0,0,1-40,40H240c-22.09,0-48-17.91-48-40V336'
+                                      style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <polyline points='288 336 368 256 288 176' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                                <line x1='80' y1='256' x2='352' y2='256' style='fill:none;stroke:#0b1417;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
+                            </svg>
+                            Connexion
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+</body>
+
 </html>

@@ -1,0 +1,289 @@
+html {
+    @media (max-width: $to-tiny) {
+        font-size: $font-size;
+    }
+    @media (min-width: $to-tiny) and (max-width: $to-small) {
+        font-size: $font-tiny;
+    }
+    @media (min-width: $from-small) and (max-width: $to-medium) {
+        font-size: $font-small;
+    }
+    @media (min-width: $from-medium) and (max-width: $to-large) {
+        font-size: $font-medium;
+    }
+    @media (min-width: $from-large) and (max-width: $to-big) {
+        font-size: $font-large;
+    }
+    @media (min-width: $from-big) and (max-width: $to-huge) {
+        font-size: $font-big;
+    }
+    @media (min-width: $from-huge) and (max-width: $to-enormous) {
+        font-size: $font-huge;
+    }
+    @media (min-width: $from-enormous) and (max-width: $to-gigantic) {
+        font-size: $font-enormous;
+    }
+    @media (min-width: $from-gigantic) and (max-width: $to-colossal) {
+        font-size: $font-gigantic;
+    }
+    @media (min-width: $from-colossal) {
+        font-size: $font-colossal;
+    }
+}
+
+body {
+    background: $color-light;
+    color: $color-dark;
+    font-family: $font-regular;
+
+    main {
+        padding: space(4) 0;
+    }
+
+    @media all and (min-width: $from-small) {
+        nav {
+            width: 18rem;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        main {
+            width: calc(100% - 18rem);
+            margin-left: auto;
+            padding: space(4);
+        }
+    }
+}
+
+.subtitle {
+    font-size: font(1.4);
+    border-bottom: 1px solid rgba($color-dark, 0.2);
+    padding-bottom: space(0.5);
+    margin-bottom: space(2);
+}
+
+.gray {
+    color: $color-gray !important;
+}
+
+ul.grid--default {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: space(2);
+    @media all and (min-width: $from-medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media all and (min-width: $from-large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media all and (min-width: $from-big) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @media all and (min-width: $from-huge) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    li {
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: space(1);
+            background: center / cover no-repeat;
+
+            &::before {
+                content: '';
+                display: block;
+                padding-bottom: 100%;
+            }
+
+            &.circle {
+                border-radius: 50%;
+            }
+        }
+
+        h2 {
+            font-size: font(0.95);
+
+            &.center {
+                text-align: center;
+            }
+        }
+
+        h3 {
+            color: $color-gray;
+            font-size: font(0.85);
+        }
+    }
+}
+
+.section--album {
+    img {
+        border-radius: 4px;
+        margin-bottom: space(1);
+    }
+
+    h1 {
+        font-size: font(1.4);
+    }
+
+    h2 {
+        font-size: font(1.2);
+        color: $color-blue;
+    }
+
+    &__infos {
+        font-size: font(0.8);
+        color: $color-gray;
+        display: flex;
+        margin-top: space(1);
+
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-right: space(1);
+            }
+        }
+    }
+
+    &__tracks {
+        margin-top: space(2);
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba($color-gray, 0.15);
+            padding: space(1.5) 0;
+
+            &:last-of-type {
+                border-bottom: 1px solid rgba($color-gray, 0.15);
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+                font-size: font(0.95);
+
+                span {
+                    width: 2.5rem;
+                    font-size: font(0.85);
+                    color: $color-gray;
+                }
+            }
+
+            p {
+                color: $color-gray;
+                font-size: font(0.8);
+            }
+
+            .playlist__name {
+                margin-left: space(2);
+            }
+        }
+    }
+
+    &__data {
+        font-size: font(0.8);
+        color: $color-gray;
+        margin-top: space(2);
+    }
+}
+
+.audio {
+    margin-right: space(2);
+    cursor: pointer;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .pause {
+        display: none;
+    }
+
+    audio {
+        display: none;
+    }
+}
+
+.section--artist {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 15rem;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: font(1.8);
+            margin-top: space(1);
+        }
+    }
+
+    .container > div:not(:first-of-type) {
+        margin-top: space(4);
+    }
+
+    .top {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: space(1);
+            @media all and (min-width: $from-medium) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media all and (min-width: $from-large) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @media all and (min-width: $from-big) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            li {
+                > div {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 3rem;
+                        border-radius: 5px;
+                        margin-right: space(1);
+                    }
+                }
+            }
+        }
+    }
+
+    .related {
+        div {
+            border-radius: 50%;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    h3 {
+        font-size: font(0.95) !important;
+        color: $color-dark !important;
+    }
+
+    p {
+        font-size: font(0.85);
+        color: $color-gray;
+    }
+
+}

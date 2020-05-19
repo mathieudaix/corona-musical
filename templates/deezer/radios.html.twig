@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corono Musical - Radios{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--default">
+            <div class="container">
+                <h1 class="subtitle">Radios</h1>
+                <ul class="grid--default">
+                    {% for radio in radios %}
+                        <li>
+                            <a href="">
+                                <div style="background-image: url( {{ radio.picture_medium ? radio.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2>{{ radio.title }}</h2>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

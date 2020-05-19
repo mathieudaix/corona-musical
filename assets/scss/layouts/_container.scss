@@ -1,0 +1,9 @@
+.container {
+    width: 100%;
+    padding-right: space(1.5);
+    padding-left: space(1.5);
+    @media all and (min-width: $from-small) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

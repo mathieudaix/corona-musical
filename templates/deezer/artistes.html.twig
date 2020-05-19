@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corono Musical - Artistes{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--default">
+            <div class="container">
+                <h1 class="subtitle">Artistes</h1>
+                <ul class="grid--default">
+                    {% for artiste in artistes %}
+                        <li>
+                            <a href={{ path('artiste', {id: artiste.id}) }}>
+                                <div class="circle"
+                                     style="background-image: url( {{ artiste.picture_medium ? artiste.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2 class="center">{{ artiste.name }}</h2>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

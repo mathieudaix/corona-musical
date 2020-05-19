@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corono Musical - Playlists{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--default">
+            <div class="container">
+                <h1 class="subtitle">Genres</h1>
+                <ul class="grid--default">
+                    {% for playlist in playlists %}
+                        <li>
+                            <a href={{ path('playlist', {id: playlist.id}) }}>
+                                <div style="background-image: url( {{ playlist.picture_medium ? playlist.picture_medium : asset('build/images/default.jpg') }} )"></div>
+                                <h2>{{ playlist.title }}</h2>
+                                <h3 class="gray">{{ playlist.creation_date }}</h3>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}

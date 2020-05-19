@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Corona Musical - Inscription{% endblock %}
+
+{% block body %}
+
+    <main>
+
+        <header class="section--album">
+            <div class="container">
+
+                <h1 class="subtitle">Inscription</h1>
+
+                <p class="form__msg">J'ai déjà un compte. <a href="{{ path('app_login') }}">Me connecter</a></p>
+
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button class="btn">S'inscrire</button>
+                {{ form_end(registrationForm) }}
+
+            </div>
+        </header>
+
+    </main>
+
+{% endblock %}
