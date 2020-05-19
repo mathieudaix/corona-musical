@@ -9,8 +9,9 @@ git clone https://github.com/mathieudaix/corona-musical.git
 npm install
 composer install
 
-# Lancement du serveur
+# Lancement de webpack
 npm run watch
+# Et dans un autre terminal
 symfony server start
 ```
 
